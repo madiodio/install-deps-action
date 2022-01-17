@@ -12,14 +12,14 @@ runs:
     - uses: actions/checkout@v2
 
     - name: Cache pnpm modules
-      id: cache
       uses: actions/cache@v2
       with:
         path: ~/.pnpm-store
-        key: ${{ runner.os }}-${{ hashFiles('**pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-
 
     - uses: pnpm/action-setup@v2.0.1
-      if: steps.cache.outputs.cache-hit != 'true'
       with:
-        version: 6.25.1
-        run_install: ${{inputs.recursiveInstall}}
+        version: 6.26.1
+        run_install: true
