@@ -4,7 +4,7 @@ inputs:
   recursiveInstall: # id of input
     description: "Recursively install NPM packages"
     required: false
-    default: "true"
+    default: "false"
 
 runs:
   using: "composite"
@@ -22,4 +22,5 @@ runs:
     - uses: pnpm/action-setup@v2.0.1
       with:
         version: 6.26.1
-        run_install: true
+        run_install: |
+          - recursive: ${{inputs.recursiveInstall}}
