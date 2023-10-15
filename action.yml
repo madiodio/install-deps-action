@@ -19,8 +19,8 @@ runs:
         restore-keys: |
           ${{ runner.os }}-
 
-    - uses: pnpm/action-setup@v2.0.1
+    - uses: pnpm/action-setup@v2
       with:
-        version: 6.26.1
+        version: 8
         run_install: |
           - recursive: ${{inputs.recursiveInstall}}
