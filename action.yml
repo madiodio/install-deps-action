@@ -22,5 +22,4 @@ runs:
     - uses: pnpm/action-setup@v2
       with:
         version: 8
-        run_install: |
-          - recursive: ${{inputs.recursiveInstall}}
+          
